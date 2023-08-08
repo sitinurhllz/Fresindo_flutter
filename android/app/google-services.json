@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "449215240282",
+    "firebase_url": "https://fresindo-default-rtdb.firebaseio.com",
+    "project_id": "fresindo",
+    "storage_bucket": "fresindo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449215240282:android:c337b4b5a53f3cb8de2063",
+        "android_client_info": {
+          "package_name": "com.example.fresindot_track_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449215240282-iv53up3m4mghtd7vafkfnrvhpiq6pk7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDLFSz50MUPbWGsKQDPYw6Qsso0mnv0rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449215240282-iv53up3m4mghtd7vafkfnrvhpiq6pk7t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "449215240282-2gtil5d06mnb32ea8668n19ac473bf0n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fresindotTrackApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
