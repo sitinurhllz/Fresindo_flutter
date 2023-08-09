@@ -14,7 +14,7 @@ class NavbarDriver extends StatefulWidget {
 
 class _NavbarDriverState extends State<NavbarDriver> {
   int currentIndex = 0;
-  List listPage = [const WaitingStartTrack(), const History(), const Profile()];
+  List listPage = [const WaitingStartTrack(),  History(), const Profile()];
 
   @override
   Widget build(BuildContext context) {

@@ -57,6 +57,7 @@ dependencies:
   google_maps_flutter: ^2.3.0
   flutter_barcode_scanner: ^2.0.0
   ionicons: ^0.2.2
+  provider: ^6.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -94,6 +95,10 @@ flutter:
     - assets/lottie/truk.json
     - assets/lottie/Notifikasi.json
     - assets/lottie/edituser.json
+    - assets/lottie/p.json
+    - assets/lottie/q.json
+    - assets/lottie/kendaraan.json
+    - assets/lottie/truk.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

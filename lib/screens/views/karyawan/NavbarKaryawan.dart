@@ -20,7 +20,7 @@ class _NavbarKaryawanState extends State<NavbarKaryawan> {
   List listPage = [
     BarcodeScannerScreen(),
     const InDeliveryKaryawan(),
-    const History(),
+     History(),
     const Profile()
   ];
 

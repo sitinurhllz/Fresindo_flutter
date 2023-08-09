@@ -168,7 +168,7 @@ class _DetailDeliveryState extends State<DetailDelivery> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const History()));
+                              builder: (context) =>  History()));
                     },
                     style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(

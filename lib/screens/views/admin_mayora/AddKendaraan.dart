@@ -4,8 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:http/http.dart' as http;
 // import 'dart:convert';
 
-Future<void> postData(
-    txtNamaSupir, txtPlat, BuildContext context) async {
+Future<void> postData(txtNamaSupir, txtPlat, BuildContext context) async {
   var url = Uri.parse(
       'http://192.168.1.244/api-fresindo/kendaraan_create.php'); // Replace with your API endpoint
 
@@ -15,7 +14,6 @@ Future<void> postData(
   var body = {
     'nama_supir': txtNamaSupir,
     'plat': txtPlat,
-    
   }; // Replace with your data
 
   var response = await http.post(url, headers: headers, body: (body));
@@ -52,12 +50,12 @@ class _AddKendaraanState extends State<AddKendaraan> {
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
-                    "TAMBAH DATA KENDARAAN",
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontSize: 25.0,
-                    ),
-                  ),
+            "TAMBAH DATA KENDARAAN",
+            style: TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 25.0,
+            ),
+          ),
         ),
         automaticallyImplyLeading:
             false, // True, untuk mengaktifkan tombol back otomatis
@@ -118,7 +116,7 @@ class _AddKendaraanState extends State<AddKendaraan> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 12.0),
             TextButton(
               onPressed: () {
@@ -126,9 +124,8 @@ class _AddKendaraanState extends State<AddKendaraan> {
                 String txtPlat = plat.text;
 
                 // Perform form submission
-                postData(txtNamaSupir, txtPlat,
-                 context);
-                 Navigator.push(
+                postData(txtNamaSupir, txtPlat, context);
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const DataKendaraan(),

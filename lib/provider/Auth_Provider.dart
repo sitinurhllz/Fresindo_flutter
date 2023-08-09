@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../model/User_Model.dart';
+// import '../screens/views/admin_mayora/dashboard.dart';
 
 class AuthProvider extends ChangeNotifier {
   //user
@@ -19,19 +20,14 @@ class AuthProvider extends ChangeNotifier {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('user_id', jsonresponse["data"]["id"].toString());
 
-      if (jsonresponse['data']['jabatan'] == "admin") {
-        Navigator.pushNamed(context, 'showUser');
-      } else if (jsonresponse['data']['jabatan'] == "driver") {
-        Navigator.pushNamed(context, 'InDelivery');
-      } else {
-        Navigator.pushNamed(context, 'navbar_Karyawan');
-      }
       final snackBar = SnackBar(
         content: Text('Login Berhasil !!'),
         duration: Duration(seconds: 3), // Optional: Set the duration
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      Navigator.pushReplacementNamed(context, 'dashboard');
+
+      Navigator.pushNamed(context, "main_activity");
+      // Navigator.pushReplacementNamed(context, 'dashboard');
     }
 
     // if (jsonresponse["error"].toString() == "false") {

@@ -247,8 +247,8 @@ class _InfoTrackBarangState extends State<InfoTrackBarang> {
                               ),
                             ),
                             const SizedBox(height: 20),
-                            const Text(
-                              'Status Pengiriman :',
+                            Text(
+                              "Status Pengiriman : ${infoDetail['status_pengiriman'] ?? '-'}",
                               style: TextStyle(
                                 fontSize: 10.0,
                                 fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresindot_track_app/screens/views/admin_mayora/AddUserForm.dart';
 import 'package:fresindot_track_app/screens/views/admin_mayora/EditDataUser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -108,100 +109,118 @@ class _DataUserState extends State<DataUser> {
         child: ListView.builder(
           itemCount: userData.length,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
-              margin: const EdgeInsets.all(10.0),
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Lottie.asset(
-                      'assets/lottie/profile2.json',
-                      height: 50,
-                      width: 50,
-                    ),
-                    title: Text(
-                      userData[index]['nama_lengkap'],
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text(
-                      userData[index]['nama_perusahaan'],
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'No. Telephone PT : ${userData[index]['no_hp'] ?? '-'},',
-                            style: const TextStyle(
-                              fontSize: 10.0,
+            Children:
+            [
+              ElevatedButton(
+                child: Text('Tambah Data',
+                style: TextStyle(
                               fontFamily: 'Poppins',
-                            ),
-                          ),
-                          Text(
-                            'NIK User : ${userData[index]['nik'] ?? '-'}',
-                            style: const TextStyle(
-                              fontSize: 10.0,
                               fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'Jabatan : ${userData[index]['jabatan'] ?? '-'}',
-                            style: const TextStyle(
-                              fontSize: 10.0,
-                              fontFamily: 'Poppins',
-                            ),
-                          ),
-                          Text(
-                            'Alamat Perusahaan : ${userData[index]['alamat_perusahaan'] ?? '-'}',
-                            style: const TextStyle(
-                              fontSize: 10.0,
-                              fontFamily: 'Poppins',
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Padding(padding: EdgeInsets.only(left: 15.0)),
-                      Column(
-                        children: [
-                          ElevatedButton(
-                            child: const Text('Edit'),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (contex) => EditDataUser(
-                                            id: int.parse(
-                                                userData[index]['id']),
-                                          )));
-                            },
-                          ),
-                          ElevatedButton(
-                            child: const Icon(Icons.delete),
-                            onPressed: () {
-                              DeleteDataUser(userData[index]['id']);
-                              fetchData();
-                            },
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                            ),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddUserForm(),
+                    ),
+                  );
+                },
               ),
-            );
+              Card(
+                margin: const EdgeInsets.all(10.0),
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Lottie.asset(
+                        'assets/lottie/profile2.json',
+                        height: 50,
+                        width: 50,
+                      ),
+                      title: Text(
+                        userData[index]['nama_lengkap'],
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        userData[index]['nama_perusahaan'],
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'No. Telephone PT : ${userData[index]['no_hp'] ?? '-'},',
+                              style: const TextStyle(
+                                fontSize: 10.0,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                            Text(
+                              'NIK User : ${userData[index]['nik'] ?? '-'}',
+                              style: const TextStyle(
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Jabatan : ${userData[index]['jabatan'] ?? '-'}',
+                              style: const TextStyle(
+                                fontSize: 10.0,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                            Text(
+                              'Alamat Perusahaan : ${userData[index]['alamat_perusahaan'] ?? '-'}',
+                              style: const TextStyle(
+                                fontSize: 10.0,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Padding(padding: EdgeInsets.only(left: 15.0)),
+                        Column(
+                          children: [
+                            ElevatedButton(
+                              child: const Text('Edit'),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (contex) => EditDataUser(
+                                              id: int.parse(
+                                                  userData[index]['id']),
+                                            )));
+                              },
+                            ),
+                            ElevatedButton(
+                              child: const Icon(Icons.delete),
+                              onPressed: () {
+                                DeleteDataUser(userData[index]['id']);
+                                fetchData();
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ];
           },
         ),
       ),

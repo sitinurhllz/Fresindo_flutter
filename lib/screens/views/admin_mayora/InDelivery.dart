@@ -186,7 +186,10 @@ import 'package:fresindot_track_app/screens/views/admin_mayora/coba.dart';
 import 'package:fresindot_track_app/screens/views/testing_screen/infotrack.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+
+import '../driver/fetch_location.dart';
 
 class InDeliveryAdmin extends StatefulWidget {
   const InDeliveryAdmin({Key? key});
@@ -197,6 +200,7 @@ class InDeliveryAdmin extends StatefulWidget {
 
 class _InDeliveryAdminState extends State<InDeliveryAdmin> {
   List<dynamic> InDelivery = [];
+  late String user_id;
 
   Future<void> postData(String id, String status, BuildContext context) async {
     var url = Uri.parse(
@@ -290,6 +294,15 @@ class _InDeliveryAdminState extends State<InDeliveryAdmin> {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       print('Terjadi kesalahan dalam memuat data: $e');
     }
+  }
+
+  Future<void> getDataShared() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var data = prefs.getString("user_id");
+    setState(() {
+      user_id = data.toString();
+    });
+    print("Data : $data");
   }
 
   @override
@@ -400,13 +413,20 @@ class _InDeliveryAdminState extends State<InDeliveryAdmin> {
                       onPressed: () {
                         print(item['id']);
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => InfoTrackBarang(
-                              id: int.parse(item['id'] ?? '-'),
-                            ),
-                          ),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FetchLocation(
+                                      id_kendaraan: item['id_kendaraan'],
+                                      userId: user_id,
+                                    )));
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => InfoTrackBarang(
+                        //       id: int.parse(item['id'] ?? '-'),
+                        //     ),
+                        //   ),
+                        // );
                       },
                     ),
                     ElevatedButton(
