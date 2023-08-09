@@ -19,6 +19,13 @@ class AuthProvider extends ChangeNotifier {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('user_id', jsonresponse["data"]["id"].toString());
 
+      if (jsonresponse['data']['jabatan'] == "admin") {
+        Navigator.pushNamed(context, 'showUser');
+      } else if (jsonresponse['data']['jabatan'] == "driver") {
+        Navigator.pushNamed(context, 'InDelivery');
+      } else {
+        Navigator.pushNamed(context, 'navbar_Karyawan');
+      }
       final snackBar = SnackBar(
         content: Text('Login Berhasil !!'),
         duration: Duration(seconds: 3), // Optional: Set the duration
